@@ -17,10 +17,13 @@ exports.up = function(knex) {
                 .references('recipes.id')
                 .onDelete('CASCADE')
                 .onUpdate('CASCADE');
+            tbl.string('instruction', 256)
+                .notNullable()
         })
         .createTable('ingredients', tbl => {
             tbl.increments();
-            tbl.string('ingredient_name', 128);
+            tbl.string('ingredient_name', 128)
+                .unique();
         })
         .createTable('recipes_ingredients', tbl => {
             tbl.increments();
