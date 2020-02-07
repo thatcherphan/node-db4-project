@@ -9,7 +9,7 @@ server.use(express.json());
  server.use('/api/recipes', recipesRoute);
 
 server.get('/', (req, res) => {
-    res.status(200).json({message: "This API is running"})
+    res.status(200).json({message: "Recipe Book API is running!"})
 })
 
 module.exports = server;
